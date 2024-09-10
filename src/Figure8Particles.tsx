@@ -38,7 +38,7 @@ const Figure8Particles: React.FC = () => {
       const time = clock.getElapsedTime();
 
       // Rotate the points around the Y-axis
-      pointsRef.current.rotation.y += 0.001; // Adjust rotation speed here
+      pointsRef.current.rotation.y += 0.0001; // Adjust rotation speed here
 
       for (let i = 0; i < PARTICLE_COUNT; i++) {
         const i3 = i * 3;
