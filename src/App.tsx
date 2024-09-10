@@ -1,26 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
+import Figure8Particles from "./Figure8Particles";
+import FloatingParticles from "./FloatingParticles";
+import Overlay from "./Overlay";
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ width: '100vw', height: '100vh', position: 'relative' }}>
+      <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
+        <color attach="background" args={["black"]} />
+        <fog attach="fog" args={['#000000', 2, 6]} />
+        <Figure8Particles />
+        <FloatingParticles />
+        <OrbitControls />
+      </Canvas>
+      <Overlay />
     </div>
   );
-}
+};
 
 export default App;
